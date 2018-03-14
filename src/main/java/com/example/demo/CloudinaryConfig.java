@@ -20,7 +20,7 @@ public class CloudinaryConfig {
     public CloudinaryConfig(
         @Value("${cloudinary.cloudname}") String cloud,
         @Value("${cloudinary.apikey}") String key,
-        @Value("$cloudinary.apisecret}") String secret)
+        @Value("${cloudinary.apisecret}") String secret)
 
         {
             cloudinary = Singleton.getCloudinary();
