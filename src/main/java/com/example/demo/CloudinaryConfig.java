@@ -18,16 +18,17 @@ public class CloudinaryConfig {
 
     @Autowired
     public CloudinaryConfig(
+        @Value("${cloudinary.cloudname}") String cloud,
         @Value("${cloudinary.apikey}") String key,
-        @Value("$cloudinary.apisecret}") String secret,
-        @Value("${cloudinary.cloudname}") String cloud)
+        @Value("$cloudinary.apisecret}") String secret)
+
         {
             cloudinary = Singleton.getCloudinary();
-            cloudinary.config.cloudName="dpa7sfjef";
-            cloudinary.config.apiSecret="Gg6tpLPXh511UWBiOw06VN4703g";
-            cloudinary.config.apiKey="133939459487456";
+            cloudinary.config.cloudName=cloud;
+            cloudinary.config.apiKey=key;
+            cloudinary.config.apiSecret=secret;
         }
-//try each cloudinary item with variable and hard code
+
     public Map upload(Object file, Map options){
         try{
             return cloudinary.uploader().upload(file, options);
